@@ -1,9 +1,5 @@
 # A NFT Image Generator Usage Instruction 📕
 
-**Chapter 1: _What is this?_**
+## Chapter 1: _What is this?_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0005.png  "OxCryptoPunk #5")
 
-The source code used to generate **OxCRYPTOPUNKS**™ <img src="https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0005.png" alt="OxCryptoPunk #5" title="OxCryptoPunk #5" style="image-rendering: pixelated;"/> NFT collection consists of 10000 characters: 6000 males, 3780 females, 99 pigeons, 88 zombies, 24 apes, and 9 aliens.
-
-
-
-
+This is the source code used to generate **OxCRYPTOPUNKS**™ NFT collection consists of 10000 characters: 6000 _males_, 3780 _females_, 99 _pigeons_, 88 _zombies_, 24 _apes_, and 9 _aliens_.
