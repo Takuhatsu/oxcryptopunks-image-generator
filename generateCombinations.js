@@ -1,7 +1,7 @@
 
 /* N2: After the list of layers is generated, run this code. NOTE: In config.js, set maxSupply to the
    maximum number of images you need in the collection, e.g., 10000, and numberOfCombinations to
-   the number of images needed for a specific type, e.g., in OxCryptoPunks there are 6800 male characters.
+   the number of images needed for a specific type, e.g., in OxCryptoPunks there are 6000 male characters.
    This code generates unique combinations with random numbers from 0 to maxSupply. It is designed
    to accurately fill the collection with different types of characters (male, female, pigeons, zombies, apes, aliens).
  */
