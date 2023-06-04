@@ -44,4 +44,6 @@ Here is an example of how folders names are stored in the metadata file for OxCr
   ]
   ```
 
-  2. 
+  2. Each final image is assembled from different layers which are stacked on top of each other.
+  ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/male%201.png  "male 1") + ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/anchor.png  "anchor") + ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/knitted%20cap.png  "knitted cap") + ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/bubble%20gum.png  "bubble gum") + ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/nerd%20glasses.png  "nerd glasses") = 
+  
