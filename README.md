@@ -5,7 +5,7 @@
 This is the source code used to generate **OxCRYPTOPUNKS**™ NFT collection consists of 10000 characters: 6000 _males_, 3780 _females_, 99 _pigeons_, 88 _zombies_, 24 _apes_, and 9 _aliens_.
 This program uses the [Jimp](https://github.com/jimp-dev/jimp) and [pngjs](https://github.com/pngjs/pngjs) libraries for image processing.
 
-## Chapter 2: _Where to start?_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/filesearch.png "file search")
+## Chapter 2: _How to install this NFT generator_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/installation.png "file search")
 
 To make the program work, some steps must be done first:
 
@@ -16,6 +16,7 @@ To make the program work, some steps must be done first:
 4. Open the folder with the repository file in Visual Studio Code.
 5. In the opened folder create folders `list-of-layers`, `combinations`, and `output`.
    In `output` folder create `images` and `metadata` folders.  
+     
    > **Note:** Make sure to use exact same names for these folders!
 6. Run `npm install --save jimp` and `npm install pngjs  --save`.
 
