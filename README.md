@@ -1,4 +1,8 @@
-# A NFT Image Generator Usage Instruction ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/instruction.png "instruction")
+<p align="center" width="100%">
+    <img width="100%" src="https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/instruction.png"> 
+</p>
+
+# A NFT Image Generator Usage Instruction
 
 ## Chapter 1: _What is this?_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/openbook.png "opened book")
 
