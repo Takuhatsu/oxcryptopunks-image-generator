@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-    <img width="100%" src="https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/instruction.png"> 
+    <img width="20%" src="https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/instruction.png"> 
 </p>
 
 # A NFT Image Generator Usage Instruction
