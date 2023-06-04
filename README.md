@@ -1,6 +1,6 @@
 # A NFT Image Generator Usage Instruction ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/instruction.png "instruction")
 
-## Chapter 1: _What is this?_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0005.png "OxCryptoPunk #5")
+## Chapter 1: _What is this?_ 
 
 This is the source code used to generate **OxCRYPTOPUNKS**™ NFT collection consists of 10000 characters: 6000 _males_, 3780 _females_, 99 _pigeons_, 88 _zombies_, 24 _apes_, and 9 _aliens_.
 This program uses the [Jimp](https://github.com/jimp-dev/jimp) and [pngjs](https://github.com/pngjs/pngjs) libraries for image processing.
@@ -19,7 +19,7 @@ To make the program work, some steps must be done first:
    > **Note:** Make sure to use exact same names for these folders!
 6. Run `npm install --save jimp` and `npm install pngjs  --save`.
 
-## Chapter 3: _What next?_
+## Chapter 3: _What next?_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0005.png "OxCryptoPunk #5")
 
 _When you are done setting up your code, it's time to work with the image files you are going to use for generation._
 
