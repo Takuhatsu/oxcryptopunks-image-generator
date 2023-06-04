@@ -62,7 +62,7 @@ The `assets` folder contains other folders with images that were used to generat
    ];
    ```
 
-## Chapter 5: _Populate assets folders with files and start generating!_
+## Chapter 5: _Populate assets folders with files and start generating!_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/files.png "files")
 
 Files in each folder should be in `.png` format with transparent background. The name for each file should include a number (weight) which will be used later to determine the _rarity_. For example, _Bubble Gum_ in the _mouth_ folder has this name: `Bubble_Gum.2.png`, where `2` is the weight number that will be used later to determine how often `Bubble_Gum.2.png` will appear in the future collection. We'll cover how _rarity_ works in the next chapter.
 
