@@ -1,4 +1,4 @@
-# A NFT Image Generator Usage Instruction 📕
+# A NFT Image Generator Usage Instruction ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/instruction.png "instruction")
 
 ## Chapter 1: _What is this?_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0005.png "OxCryptoPunk #5")
 
@@ -68,7 +68,7 @@ Files in each folder should be in `.png` format with transparent background. The
 
 When the assets folders are populated, it's time to run `generateListOfLayers.js`, which will read files from the folders specified in the _folders_ array from `config.js` and create the `list-of-layers.json` file with a list of all the found layers and their weights. Now we're ready to generate combinations, but first we need to step back and see what _weights_ are and why we need them.
 
-## Chapter 4: _Rarity_
+## Chapter 4: _Rarity_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk5581.png "OxCryptoPunk #5581")
 
 Let's take the _facefeatures_ folder for example. There are files: `Buck_Teeth.1.png`, `Frown.2.png`, `KEYWORDBLANK-FACEFEATURES.86.png`, `Mole.7.png`, `Smile.2.png`, and `Spots.2.png`. When we run `generateListOfLayers.js`, the code extracts the numbers that are located after the dot and right before the `.png` extension, and includes them in the `list-of-layers.json` file as weights. This nft generator assumes that the sum of all the weights in one folder should be _100_ (related to _100%_). When a specific folder is populated, the weights sum can be checked by running `checkFilesWeights.js` (the path to the folder should be specified in the _folderPath_ variable from `checkFilesWeights.js`).
 
