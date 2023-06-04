@@ -15,7 +15,7 @@ To make the program work, some steps must be done first:
    `git clone https://github.com/Takuhatsu/nft-image-generator.git`
 4. Open the folder with the repository file in Visual Studio Code.
 5. In the opened folder create folders `list-of-layers`, `combinations`, and `output`.
-   In `output` folder create `images` and `metadata` folders.
+   In `output` folder create `images` and `metadata` folders.  
    > **Note:** Make sure to use exact same names for these folders!
 6. Run `npm install --save jimp` and `npm install pngjs  --save`.
 
@@ -77,4 +77,4 @@ Let's take the _facefeatures_ folder for example. There are files: `Buck_Teeth.1
 
 Thus, `Buck_Teeth.1.png` will be used, approximately, in 1% of combinations, `Mole.7.png` in 7% of combinations, and so on...  
 
-Such folders as _head_ are considered to be used in 100% of cases if we don't want characters without heads. In the case of the _facefeatures_ folder - we don't want to use files from this folder in 100% of cases. For this scenario we need to include empty transparent `.png` file in _facefeatures_ folder with name starting with _KEYWORDBLANK_. In our particular case, this file's full name is  `KEYWORDBLANK-FACEFEATURES.86.png` with the weight of `86`, which means this file will be used aproximately in 86% of combinations. In the future, when we'll be generating the final collection, _KEYWORDBLANK_ files, same as folders where such files located, will not be included to the metadata.
+Such folders as _head_ are considered to be used in 100% of cases if we don't want characters without heads. In the case of the _facefeatures_ folder - we don't want to use files from this folder in 100% of cases. For this scenario we need to include empty transparent `.png` file in _facefeatures_ folder with name starting with _KEYWORDBLANK_. In our particular case, this file's full name is  `KEYWORDBLANK-FACEFEATURES.86.png` with the weight of `86`, which means this file will be used aproximately in 86% of combinations. In the future, when we'll be generating the final collection, _KEYWORDBLANK_ files will not be included to the metadata.
