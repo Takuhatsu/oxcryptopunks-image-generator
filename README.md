@@ -71,7 +71,9 @@ The `assets` folder contains other folders with images that were used to generat
 
 Files in each folder should be in `.png` format with transparent background. The name for each file should include a number (weight) which will be used later to determine the _rarity_. For example, _Bubble Gum_ in the _mouth_ folder has this name: `Bubble_Gum.2.png`, where `2` is the weight number that will be used later to determine how often `Bubble_Gum.2.png` will appear in the future collection. We'll cover how _rarity_ works in the next chapter.
 
-When the assets folders are populated, it's time to run `generateListOfLayers.js`, which will read files from the folders specified in the _folders_ array from `config.js` and create the `list-of-layers.json` file with a list of all the found layers and their weights. Now we're ready to generate combinations, but first we need to step back and see what _weights_ are and why we need them.
+When the assets folders are populated, it's time to run `generateListOfLayers.js`, which will read files from the folders specified in the _folders_ array from `config.js` and create the `list-of-layers.json` file with a list of all the found layers and their weights. Now we're ready to generate combinations, but first we need to step back and see what _weights_ are and why we need them.  
+
+> **Note:** We will be generating one type of character at once, so `list-of-layers.json` should be generated for a specific type and then rewritten if needed.
 
 ## Chapter 5: _Rarity_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk5581.png "OxCryptoPunk #5581")
 
@@ -86,3 +88,12 @@ Such folders as _head_ are considered to be used in 100% of cases if we don't wa
 
 ## Chapter 6: _How to populate a NFT collection with different types -_  
 ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0091.png "OxCryptoPunk #91") ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0084.png "OxCryptoPunk #84") ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk7748.png "OxCryptoPunk #7748") ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk1210.png "OxCryptoPunk #1210") ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0815.png "OxCryptoPunk #815") ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk6848.png "OxCryptoPunk #6848")
+
+If we want all characters to be, let's say, _pigeons_, we need to match `numberOfCombinations` and `maxSupply` from `config.js`, then run `generateCombinations.js`. But what if we want 6000 males, 3780 females, 99 pigeons, 88 zombies, 24 apes, and 9 aliens? This how we made it for OxCRYPTOPUNKS™:
+
+1. Set up `config.js` files to read folders for _male_ characters.  `maxSupply` should be set to 10000, and `numberOfCombinations` to 6000.
+2. After we ran `generateCombinations.js`, assuming that `list-of-layers.json` for males already done, we're getting 6000 unique combinations. Each combination receives a random number from 0 to 10000 (`maxSupply`). It's made for random population, so we don't have a burger of only male-characters, then only female-characters in a row.
+3. Then we modify `config.js` file to switch it to female-characters, change `numberOfCombinations` to 3800 (`maxSupply` should be left the same), generate a new `list-of-layers.json`, and run `generateCombinations2.js`.
+
+> **Note:** When we run generateCombinations2.js, the code checks which numbers were already assigned, and assigns available numbers from 0 to maxSupply.
+
