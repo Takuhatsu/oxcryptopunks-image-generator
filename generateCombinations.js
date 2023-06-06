@@ -81,8 +81,8 @@ function generateCombinations() {
     }
 
     if (isUnique) {
-      const imageNumber = Math.floor(Math.random() * maxSupply); // Generate a random image number from 0 to maxSupply.
-      combinations[`image_${imageNumber}`] = combination;
+      const imageNumber = (Math.floor(Math.random() * maxSupply).toString()).padStart(4, "0"); // Generate a random image number from 0 to maxSupply.
+      combinations[`oxpunk${imageNumber}`] = combination;
       console.log(`Combination ${imageNumber} successfully generated!`);
     } else {
       console.log(`Combination ${count + 1} is not unique. Skipped --->>>`);

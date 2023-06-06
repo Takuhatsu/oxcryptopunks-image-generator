@@ -6,7 +6,7 @@ const combinations = require("./combinations/combinations.json");
 
 async function generateImages() {
   for (const imageName in combinations) {
-    const imageNumber = imageName.replace("image_", ""); // Extract the image number from the imageName
+    const imageNumber = parseInt(imageName.replace("oxpunk", "")); // Extract the image number from the imageName
 
     const layers = combinations[imageName];
 
@@ -32,17 +32,17 @@ async function generateImages() {
       }
     }
 
-    const filename = `${images}/${imageNumber}.png`;
+    const filename = `${images}/${imageName}.png`;
     await newImage.writeAsync(filename);
-    console.log(`${imageNumber}.png with metadata generated successfully!`);
+    console.log(`${imageName}.png with metadata generated successfully!`);
 
     if (attributes.length > 0) {
       const json = {
-        image: `REPLACE-THIS-WITH-ADDRESS/${imageNumber}.png`,
+        image: `REPLACE-THIS-WITH-ADDRESS/${imageName}.png`,
         name: `OxCryptoPunk #${imageNumber}`,
         attributes: attributes,
       };
-      const jsonFilename = `${metadata}/${imageNumber}.json`;
+      const jsonFilename = `${metadata}/${imageName}.json`;
       await fs.writeFile(jsonFilename, JSON.stringify(json, null, 4));
     }
   }

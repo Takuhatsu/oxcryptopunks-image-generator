@@ -97,7 +97,7 @@ If we want all characters to be, let's say, _pigeons_, we need to match `numberO
 
 > **Tip:** Run `generateStatistic.js` after generating combinations to check if all layers were used. If the desired statistics were not met, adjust the weights and regenerate the combinations.    
 
-3. Run `generateNFTCollection.js` to turn combinations into images and metadata files. It is suggested to generate each character type into its own folder (e.g.: _images_male_, _metadata_male_). Output folders are controlled through `config.js`.
+3. Run `renderCollection.js` to turn combinations into images and metadata files. It is suggested to generate each character type into its own folder (e.g.: _images_male_, _metadata_male_). Output folders are controlled through `config.js`.
 4. Modify `config.js` file to switch it to female-characters, change `numberOfCombinations` to 3800 (`maxSupply` should be left the same), generate a new `list-of-layers.json`, and run `generateCombinations2.js`.
 
 > **Tip:** When we run `generateCombinations2.js`, the code checks which numbers were already assigned, and assigns available numbers from 0 to `maxSupply`.
@@ -108,4 +108,4 @@ If we want all characters to be, let's say, _pigeons_, we need to match `numberO
 
 6. Pigeons, zombies, apes, and aliens combinations were also generated with generateCombinations2.js, because only generateCombinations2 checks which numbers are already taken.  
 
-7. When all the types of character are generated, consider to copy/paste images to ./output/images folder and metadata to ./output/metadata folder.
+7. When all the types of character are generated, we copy/paste images to ./output/images folder and metadata to ./output/metadata folder.

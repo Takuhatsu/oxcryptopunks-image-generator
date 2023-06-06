@@ -19,9 +19,9 @@ module.exports = {
 
   // Set the amount of tokens that will be generated for the specific type
   // E.g., if there are 88 zombies and zombies are the type that is currently generating, paste 88 here
-  numberOfCombinations: 6800,
+  numberOfCombinations: 1000,
 
-  maxSupply: 10000, // Set the maximum amount of tokens that will be generated
+  maxSupply: 1000, // Set the maximum amount of tokens that will be generated
 
   // Dimensions of the output image: 24px x 24px
   image: new Jimp(24, 24),
