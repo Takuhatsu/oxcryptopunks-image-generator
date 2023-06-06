@@ -21,7 +21,8 @@ To make the program work, some steps must be done first:
 5. In the opened folder create folders `list-of-layers`, `combinations`, and `output`.
    In `output` folder create `images` and `metadata` folders.  
      
-   > **Note:** Make sure to use exact same names for these folders!
+   > **Tip:** Make sure to use exact same names for these folders!
+
 6. Run `npm install --save jimp` and `npm install pngjs  --save`.
 
 ## Chapter 3: _Layer ordering_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk0005.png "OxCryptoPunk #5")
@@ -73,13 +74,13 @@ Files in each folder should be in `.png` format with transparent background. The
 
 When the assets folders are populated, it's time to run `generateListOfLayers.js`, which will read files from the folders specified in the _folders_ array from `config.js` and create the `list-of-layers.json` file with a list of all the found layers and their weights. Now we're ready to generate combinations, but first we need to step back and see what _weights_ are and why we need them.  
 
-> **Note:** We will be generating one type of character at once, so `list-of-layers.json` should be generated for a specific type and then rewritten if needed.
+> **Tip:** We will be generating one type of character at once, so `list-of-layers.json` should be generated for a specific type and then rewritten if needed.
 
 ## Chapter 5: _Rarity_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/oxpunk5581.png "OxCryptoPunk #5581")
 
 Let's take the _facefeatures_ folder for example. There are files: `Buck_Teeth.1.png`, `Frown.2.png`, `KEYWORDBLANK-FACEFEATURES.86.png`, `Mole.7.png`, `Smile.2.png`, and `Spots.2.png`. When we run `generateListOfLayers.js`, the code extracts the numbers that are located after the dot and right before the `.png` extension, and includes them in the `list-of-layers.json` file as weights. This nft generator assumes that the sum of all the weights in one folder should be _100_ (related to _100%_). When a specific folder is populated, the weights sum can be checked by running `checkFilesWeights.js` (the path to the folder should be specified in the _folderPath_ variable from `checkFilesWeights.js`).
 
-> **Note:** Weights are calculated for each folder separately!
+> **Tip:** Weights are calculated for each folder separately!
 
 
 Thus, `Buck_Teeth.1.png` will be used, approximately, in 1% of combinations, `Mole.7.png` in 7% of combinations, and so on...  
@@ -92,8 +93,19 @@ Such folders as _head_ are considered to be used in 100% of cases if we don't wa
 If we want all characters to be, let's say, _pigeons_, we need to match `numberOfCombinations` and `maxSupply` from `config.js`, then run `generateCombinations.js`. But what if we want 6000 males, 3780 females, 99 pigeons, 88 zombies, 24 apes, and 9 aliens? This how we made it for OxCRYPTOPUNKS™:
 
 1. Set up `config.js` files to read folders for _male_ characters.  `maxSupply` should be set to 10000, and `numberOfCombinations` to 6000.
-2. After we ran `generateCombinations.js`, assuming that `list-of-layers.json` for males already done, we're getting 6000 unique combinations. Each combination receives a random number from 0 to 10000 (`maxSupply`). It's made for random population, so we don't have a burger of only male-characters, then only female-characters in a row.
-3. Then we modify `config.js` file to switch it to female-characters, change `numberOfCombinations` to 3800 (`maxSupply` should be left the same), generate a new `list-of-layers.json`, and run `generateCombinations2.js`.
+2. After we ran `generateCombinations.js`, assuming that `list-of-layers.json` for males already done, we're getting 6000 unique combinations. Each combination receives a random number from 0 to 10000 (`maxSupply`). It's made for random population, so we don't have a burger of only male-characters, then only female-characters in a row.  
 
-> **Note:** When we run generateCombinations2.js, the code checks which numbers were already assigned, and assigns available numbers from 0 to maxSupply.
+> **Tip:** Run `generateStatistic.js` after generating combinations to check if all layers were used. If the desired statistics were not met, adjust the weights and regenerate the combinations.    
 
+3. Run `generateNFTCollection.js` to turn combinations into images and metadata files. It is suggested to generate each character type into its own folder (e.g.: _images_male_, _metadata_male_). Output folders are controlled through `config.js`.
+4. Modify `config.js` file to switch it to female-characters, change `numberOfCombinations` to 3800 (`maxSupply` should be left the same), generate a new `list-of-layers.json`, and run `generateCombinations2.js`.
+
+> **Tip:** When we run `generateCombinations2.js`, the code checks which numbers were already assigned, and assigns available numbers from 0 to `maxSupply`.
+
+5. We can check which numbers are still available by running checkAvailableNumbers.js. This code will create availableNumbers.json with needed information.  
+
+> **Tip:** `checkAvailableNumbers.js` will be checking the current `images` folders that are controlled through `config.js`!  
+
+6. Pigeons, zombies, apes, and aliens combinations were also generated with generateCombinations2.js, because only generateCombinations2 checks which numbers are already taken.  
+
+7. When all the types of character are generated, consider to copy/paste images to ./output/images folder and metadata to ./output/metadata folder.

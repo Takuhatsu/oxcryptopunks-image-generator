@@ -1,63 +1,65 @@
-const fs = require('fs');
+const fs = require("fs");
 
-function generateOverallStatistic() {
-  const folderPath = './output/metadata';
-  const overallStatistics = {
-    Type: {},
-    Accessory: {}
-  };
-
-  // Read all the JSON files from the folder
-  const fileNames = fs.readdirSync(folderPath);
-
-  // Iterate through each JSON file
-  fileNames.forEach((fileName) => {
-    const filePath = `${folderPath}/${fileName}`;
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const jsonData = JSON.parse(fileContent);
-
-    // Count the Type occurrences
-    const type = jsonData.attributes.find(attr => attr.trait_type === 'Type').value;
-    if (type) {
-      if (overallStatistics.Type[type]) {
-        overallStatistics.Type[type] += 1;
+function updateStatistic() {
+  // read combinations.json and count layer usage
+  const combinations = JSON.parse(
+    fs.readFileSync("./combinations/combinations.json")
+  );
+  const layerUsage = {};
+  for (const key in combinations) {
+    const layers = combinations[key];
+    for (const layer of layers) {
+      const layerName = layer.split(".")[0];
+      if (layerUsage[layerName]) {
+        layerUsage[layerName]++;
       } else {
-        overallStatistics.Type[type] = 1;
+        layerUsage[layerName] = 1;
       }
     }
+  }
 
-    // Count the Accessory occurrences
-    const accessories = jsonData.attributes.filter(attr => attr.trait_type === 'Accessory');
-    accessories.forEach(accessory => {
-      const accessoryName = accessory.value;
-      if (accessoryName) {
-        if (overallStatistics.Accessory[accessoryName]) {
-          overallStatistics.Accessory[accessoryName] += 1;
-        } else {
-          overallStatistics.Accessory[accessoryName] = 1;
-        }
-      }
+  // read list-of-layers.json and copy its structure
+  const layersList = JSON.parse(
+    fs.readFileSync("./list-of-layers/list-of-layers.json")
+  );
+  const statistic = {};
+
+  // create a copy of the layers list with usage counts
+  for (const layerName in layersList) {
+    const layerFiles = layersList[layerName];
+    const layerStat = [];
+    for (const layerFile of layerFiles) {
+      const fileName = layerFile.file;
+      const fileExtension = fileName.split(".").pop();
+      const usageCount = layerUsage[fileName.split(".")[0]] || 0;
+      const usedField = `used: ${usageCount} times`;
+      const updatedFile = {
+        file: fileName,
+        used: usedField,
+      };
+      layerStat.push(updatedFile);
+    }
+    statistic[layerName] = layerStat;
+  }
+
+  // sort layers in each layerStat object by usage count
+  for (const layerStat of Object.values(statistic)) {
+    layerStat.sort((a, b) => {
+      const aCount = parseInt(a.used.split(" ")[1]);
+      const bCount = parseInt(b.used.split(" ")[1]);
+      return aCount - bCount;
     });
-  });
-
-  // Calculate percentages for each Type
-  const totalTypes = Object.values(overallStatistics.Type).reduce((total, count) => total + count, 0);
-  for (const [type, count] of Object.entries(overallStatistics.Type)) {
-    overallStatistics.Type[type] = `${count} (${((count / totalTypes) * 100).toFixed(2)}%)`;
   }
 
-  // Calculate percentages for each Accessory
-  const totalAccessories = Object.values(overallStatistics.Accessory).reduce((total, count) => total + count, 0);
-  for (const [accessory, count] of Object.entries(overallStatistics.Accessory)) {
-    overallStatistics.Accessory[accessory] = `${count} (${((count / totalAccessories) * 100).toFixed(2)}%)`;
-  }
-
-  // Write the overall statistics to a new JSON file
-  const outputFilePath = './overallStatisticPercentage.json';
-  const outputData = JSON.stringify(overallStatistics, null, 2);
-  fs.writeFileSync(outputFilePath, outputData);
-
-  console.log('Overall statistics generated and written to overallStatistic.json.');
+  // write updated version of list-of-layers.json to statistic.json
+  const sortedStatistic = Object.fromEntries(
+    Object.entries(statistic).sort(([, a], [, b]) => b.length - a.length)
+  );
+  fs.writeFileSync(
+    "./statistic.json",
+    JSON.stringify(sortedStatistic, null, 4)
+  );
+  console.log("Statistic file generated successfully!");
 }
 
-generateOverallStatistic();
+updateStatistic();
