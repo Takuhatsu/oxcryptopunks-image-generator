@@ -114,7 +114,7 @@ If we want all characters to be, let's say, _pigeons_, we need to match `numberO
 
 When we generate 10,000 images, we want to create a composite image from them. Use `buildComposite.js` for this. Take a closer look at the `const row` from `config.js` - the row variable should store the number of images we want in each row. If we talk about a 10,000-image collection, then we want 100 images in one row, as 100x100 = 10,000. The `buildComposite.js` script reads the images variable from `config.js` as an input. The complete composite will be saved at the core directory with all the code files as `oxpunks.png`.  
 
-> **Tip:** All the images should be stored in one folder, so we moved all the different types of characters into one `images` folder. Also, to have a correct images order in the composite, we should avoid naming our images like this: 0, 1, 2, ..., 10, 11, ..., 100, 101. Instead, we should have names such as 0000, 0001, ..., 0010, ..., 0100, and so on...
+> **Tip:** All the images should be stored in one folder, so we moved all the different types of characters into one `images` folder. Also, to have a correct images order in the composite, we should avoid naming our images like this: 0, 1, ..., 10, 11, ..., 100, 101. Instead, we should have names such as 0000, 0001, ..., 0010, ..., 0100, and so on...
 
 ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/oxpunks.png "oxpunks")
 
