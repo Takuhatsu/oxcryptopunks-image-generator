@@ -109,3 +109,5 @@ If we want all characters to be, let's say, _pigeons_, we need to match `numberO
 6. Pigeons, zombies, apes, and aliens combinations were also generated with generateCombinations2.js, because only generateCombinations2 checks which numbers are already taken.  
 
 7. When all the types of character are generated, we copy/paste images to ./output/images folder and metadata to ./output/metadata folder.
+
+## Chapter 7: 
