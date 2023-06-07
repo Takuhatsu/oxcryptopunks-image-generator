@@ -110,4 +110,6 @@ If we want all characters to be, let's say, _pigeons_, we need to match `numberO
 
 7. When all the types of character are generated, we copy/paste images to ./output/images folder and metadata to ./output/metadata folder.
 
-## Chapter 7: 
+## Chapter 7: _Composite image_
+
+When we generate 10,000 images, we want to create a composite image from them. Use `buildComposite.js` for this. Take a closer look at the `const row` - the `row` variable should store the number of images we want in each row. If we talk about a 10,000-image collection, then we want 100 images in one row, as 100x100 = 10,000. The `buildComposite.js` script reads the images variable from `config.js` as an input. The complete composite will be saved in the core directory with all the code files as `oxpunks.png`.

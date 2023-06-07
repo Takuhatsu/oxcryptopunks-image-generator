@@ -2,7 +2,7 @@ const fs = require('fs');
 const Jimp = require('jimp');
 const { maxSupply, images } = require('./config.js');
 
-const row = 50; // The number of images we need in a row. For the 10k collection, the number should be 100.
+const row = 100; // The number of images we need in a row. For the 10k collection, the number should be 100.
 
 async function createCompositeImage() {
 
