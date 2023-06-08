@@ -6,16 +6,16 @@
    to accurately fill the collection with different types of characters (male, female, pigeons, zombies, apes, aliens).
  */
 
-const fs = require("fs");
-const { folders, numberOfCombinations, maxSupply } = require("./config.js");
+const fs = require('fs');
+const { folders, numberOfCombinations, maxSupply } = require('./config.js');
 
 function generateCombinations() {
   const layers = JSON.parse(
-    fs.readFileSync("./list-of-layers/list-of-layers.json")
+    fs.readFileSync('./list-of-layers/list-of-layers.json')
   );
 
-  const excludedNames = ["3D Glasses.2.png", "Big Shades.5.png", "Blindfold.1.png", "Classic Shades.5.png", "Eye Mask.3.png", "Holographic Visor.2.png", "Horned Rim Glasses.5.png", "Monocle.2.png", "Nerd Glasses.6.png", "Regular Shades.5.png", "Small Shades.3.png", "VR.3.png", "Medical Mask.1.png"];
-  const aviatorHelmet = "Aviator Helmet.2.png";
+  const excludedNames = ['3D Glasses.2.png', 'Big Shades.5.png', 'Blindfold.1.png', 'Classic Shades.5.png', 'Eye Mask.3.png', 'Holographic Visor.2.png', 'Horned Rim Glasses.5.png', 'Monocle.2.png', 'Nerd Glasses.6.png', 'Regular Shades.5.png', 'Small Shades.3.png', 'VR.3.png', 'Medical Mask.1.png'];
+  const aviatorHelmet = 'Aviator Helmet.2.png';
 
   let combinations = {};
   let count = 0; // Attempts to generate a unique combination.
@@ -27,7 +27,7 @@ function generateCombinations() {
     let combination = [];
 
     for (let folder of folders) {
-      let layerType = folder.path.split("/").pop();
+      let layerType = folder.path.split('/').pop();
 
       // Filter layers by folder.
       let folderLayers = layers[layerType];
@@ -74,14 +74,14 @@ function generateCombinations() {
     let isUnique = true;
 
     for (let key in combinations) {
-      if (combinations[key].join(",") === combination.join(",")) {
+      if (combinations[key].join(',') === combination.join(',')) {
         isUnique = false;
         break;
       }
     }
 
     if (isUnique) {
-      const imageNumber = (Math.floor(Math.random() * maxSupply).toString()).padStart(4, "0"); // Generate a random image number from 0 to maxSupply.
+      const imageNumber = (Math.floor(Math.random() * maxSupply).toString()).padStart(4, '0'); // Generate a random image number from 0 to maxSupply.
       combinations[`oxpunk${imageNumber}`] = combination;
       console.log(`Combination ${imageNumber} successfully generated!`);
     } else {
@@ -96,7 +96,7 @@ function generateCombinations() {
     );
   } else {
     fs.writeFileSync(
-      "./combinations/combinations.json",
+      './combinations/combinations.json',
       JSON.stringify(combinations, null, 4)
     );
     console.log(`${numberOfCombinations} unique combinations generated successfully.`);

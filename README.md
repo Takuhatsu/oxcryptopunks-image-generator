@@ -1,7 +1,3 @@
-<p align="center" width="15%">
-    <img width="15%" src="https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/instruction.png"> 
-</p>
-
 # A NFT Image Generator Usage Instruction
 
 ## Chapter 1: _Description_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/openbook.png "opened book")
@@ -117,4 +113,18 @@ When we generate 10,000 images, we want to create a composite image from them. U
 > **Tip:** All the images should be stored in one folder, so we moved all the different types of characters into one `images` folder. Also, to have a correct images order in the composite, we should avoid naming our images like this: 0, 1, ..., 10, 11, ..., 100, 101. Instead, we should have names such as 0000, 0001, ..., 0010, ..., 0100, and so on...
 
 ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/oxpunks.png "oxpunks")
+
+## Chapter 8: _Prepare files for the IPFS_
+
+When a collection is generated, we want to rename our files to have this template: _0.png, 1.png, ..., 9998.png, 9999.png_ for images, and this template for JSON metadata files: _0, 1, ..., 9998, 9999_. We prefer using a JSON metadata file as a bare file, which means without _.json_ extension. 
+For these purposes, we designed the `renameFiles.js` script. Before running the script, configure `currentlyRenaming` and `renamedFilesDir` variables. `currentlyRenaming` variable should point to one of two folders - `images` or `metadata`. `renamedFilesDir` should be pointed to one of two directories that will be created for renamed files - `imagesIPFS` or `metadataIPFS` respectively. This code will automatically leave the _.png_ extension and will remove the _.json_ extension.
+
+Next, we are running `resizeImage.js` to scale the 24x24 images. The size of resized images and the background color are controlled through variables `imageWidth`, `imageHeight`, and `backgroundColor`.
+
+The last thing that we need to do is to update the _IPFS CID_ in metadata files. For this, first, `imagesIPFS` folder should be uploaded into _IPFS_. When done, we'll get _IPFS CID_ that looks like this: `QmTPhRzQATQWSqx2j5t8YWnuGxDt2tX46qZ3syDHhcth3y`. Assign this _CID_ to the `ipfsCID` variable in `config.js`. Check if the `ipfsCIDPlaceholder` variable in `config.js`, stores actual placeholder link from metadata JSON files.
+
+Run `updateIPFSCID.js`.
+
+Now the `metadata-IPFS` folder can be uploaded into _IPFS_. Done!
+
 

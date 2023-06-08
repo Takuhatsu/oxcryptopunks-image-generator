@@ -1,11 +1,11 @@
 // N3: Use this code when the first part of the collection is generated. Adjust numberOfCombinations as needed.
 
-const fs = require("fs");
-const { folders, numberOfCombinations, maxSupply } = require("./config.js");
+const fs = require('fs');
+const { folders, numberOfCombinations, maxSupply } = require('./config.js');
 
 function generateCombinations2() {
   const layers = JSON.parse(
-    fs.readFileSync("./list-of-layers/list-of-layers.json")
+    fs.readFileSync('./list-of-layers/list-of-layers.json')
   );
 
   let combinations = {};
@@ -18,7 +18,7 @@ function generateCombinations2() {
     let combination = [];
 
     for (let folder of folders) {
-      let layerType = folder.path.split("/").pop();
+      let layerType = folder.path.split('/').pop();
 
       // Filter layers by folder.
       let folderLayers = layers[layerType];
@@ -47,7 +47,7 @@ function generateCombinations2() {
     let isUnique = true;
 
     for (let key in combinations) {
-      if (combinations[key].join(",") === combination.join(",")) {
+      if (combinations[key].join(',') === combination.join(',')) {
         isUnique = false;
         break;
       }
@@ -78,17 +78,11 @@ function generateCombinations2() {
     );
   } else {
     fs.writeFileSync(
-      "./combinations/combinations.json",
+      './combinations/combinations.json',
       JSON.stringify(combinations, null, 4)
     );
     console.log(
-      "------------------------------------------------------------------------------"
-    );
-    console.log(
       `Completed successfully. ${numberOfCombinations} unique combinations generated!`
-    );
-    console.log(
-      "------------------------------------------------------------------------------"
     );
   }
 }

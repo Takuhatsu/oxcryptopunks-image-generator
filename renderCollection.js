@@ -1,8 +1,8 @@
-const Jimp = require("jimp");
-const fs = require("fs/promises");
+const Jimp = require('jimp');
+const fs = require('fs/promises');
 const { folders, image, images, metadata } = require('./config.js');
 
-const combinations = require("./combinations/combinations.json");
+const combinations = require('./combinations/combinations.json');
 
 async function generateImages() {
   for (const imageName in combinations) {
@@ -12,10 +12,10 @@ async function generateImages() {
 
     // Create an attributes object from the layers array
     const attributes = layers.reduce((acc, layer, j) => {
-      if (!layer.startsWith("KEYWORDBLANK") && !layer.startsWith("background")) {
-        const folder = folders[j].path.split("/").pop();
-        const traitType = folder === "head" ? "Type" : "Accessory"; // Instead of having "Head" in metadata we'll be having "Type"
-        const value = layer.replace(/\.\s*\d+(?=\.png$)/, "").replace(/\.png$/, "").trim();
+      if (!layer.startsWith('KEYWORDBLANK') && !layer.startsWith('background')) {
+        const folder = folders[j].path.split('/').pop();
+        const traitType = folder === 'head' ? 'Type' : 'Accessory'; // Instead of having "Head" in metadata we'll be having "Type"
+        const value = layer.replace(/\.\s*\d+(?=\.png$)/, '').replace(/\.png$/, "").trim();
         acc.push({ trait_type: traitType, value: value });
       }
       return acc;
@@ -26,7 +26,7 @@ async function generateImages() {
 
     for (let j = 0; j < layers.length; j++) {
       const layerPath = `${folders[j].path}/${layers[j]}`;
-      if (!layers[j].startsWith("KEYWORDBLANK")) {
+      if (!layers[j].startsWith('KEYWORDBLANK')) {
         const layer = await Jimp.read(layerPath);
         newImage.composite(layer, 0, 0);
       }

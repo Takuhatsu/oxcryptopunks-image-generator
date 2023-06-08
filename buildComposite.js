@@ -48,7 +48,7 @@ async function createCompositeImage() {
     }
   }
 
-  // Save the composite image as "oxpunks.png"
+  // Save the composite image as 'oxpunks.png'
   await compositeImage.writeAsync('./oxpunks.png');
 }
 
