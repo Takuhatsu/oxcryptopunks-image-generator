@@ -1,11 +1,13 @@
 # OxCRYPTOPUNKS™ Image Generator () {
 
+   _Strongly influenced by CryptoPunks, but with a personal touch. Please note, this project is not about creating original art! It's about coding and learning how to code._
+
 ## Chapter 1: _Description_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/openbook.png "opened book")
 
 This is the source code used to generate **OxCRYPTOPUNKS**™ NFT collection consists of 10,000 characters: 6,000 _males_, 3,780 _females_, 99 _pigeons_, 88 _zombies_, 24 _apes_, and 9 _aliens_.
 This program uses the [Jimp](https://github.com/jimp-dev/jimp) and [pngjs](https://github.com/pngjs/pngjs) libraries for image processing.
 
-## Chapter 2: _How to install the OxCRYPTOPUNKS™ IMAGE GENERATOR_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/installation.png "file search")
+## Chapter 2: _How to install the program ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/installation.png "file search")
 
 To make the program work, some steps must be done first:
 
@@ -158,7 +160,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 # };
-#
+
 
 
 
