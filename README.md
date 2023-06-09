@@ -1,6 +1,7 @@
 # OxCRYPTOPUNKS™ Image Generator () {
 
    _Strongly influenced by CryptoPunks, but with a personal touch. Please note, this project is not about creating original art! It's about coding and learning how to code._
+#
 
 ## Chapter 1: _Description_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/openbook.png "opened book")
 
