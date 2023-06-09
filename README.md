@@ -1,4 +1,4 @@
-# OxCRYPTOPUNKS™ IMAGE GENERATOR
+# OxCRYPTOPUNKS™ Image Generator () {
 
 ## Chapter 1: _Description_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/openbook.png "opened book")
 
@@ -106,6 +106,8 @@ If we want all characters to be, let's say, _pigeons_, we need to match `numberO
 
 7. When all the types of character are generated, we copy/paste images to ./output/images folder and metadata to ./output/metadata folder.
 
+8. `generateOverallStatistic.js` will read the `metadata` folder and write a new _JSON_ file called `overallStatistic.json` with information about how many times each layer was used.
+
 ## Chapter 7: _Composite image_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/composite.png "composite")
 
 When we generate 10,000 images, we want to create a composite image from them. Use `buildComposite.js` for this. Take a closer look at the `const row` from `config.js` - the row variable should store the number of images we want in each row. If we talk about a 10,000-image collection, then we want 100 images in one row, as 100x100 = 10,000. The `buildComposite.js` script reads the images variable from `config.js` as an input. The complete composite will be saved at the core directory with all the code files as `oxpunks.png`.  
@@ -114,26 +116,28 @@ When we generate 10,000 images, we want to create a composite image from them. U
 
 ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/oxpunks.png "oxpunks")
 
-## Chapter 8: _Prepare files for the IPFS_
+## Chapter 8: _Prepare files for the IPFS_ ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/ipfs.png "ipfs")
 
-When a collection is generated, we want to rename our files to have this template: _0.png, 1.png, ..., 9998.png, 9999.png_ for images, and this template for JSON metadata files: _0, 1, ..., 9998, 9999_. We prefer using a JSON metadata file as a bare file, which means without _.json_ extension. 
+When a collection is generated, we want to rename our files to have this template: _0.png, 1.png, ..., 9998.png, 9999.png_ for images, and this template for JSON metadata files: _0, 1, ..., 9998, 9999_. We prefer using a _JSON_ metadata file as a bare file, which means without _.json_ extension. 
 For these purposes, we designed the `renameFiles.js` script. Before running the script, configure `currentlyRenaming` and `renamedFilesDir` variables. `currentlyRenaming` variable should point to one of two folders - `images` or `metadata`. `renamedFilesDir` should be pointed to one of two directories that will be created for renamed files - `imagesIPFS` or `metadataIPFS` respectively. This code will automatically leave the _.png_ extension and will remove the _.json_ extension.
 
 Next, we are running `resizeImage.js` to scale the 24x24 images. The size of resized images and the background color are controlled through variables `imageWidth`, `imageHeight`, and `backgroundColor`.
 
-The last thing that we need to do is to update the _IPFS CID_ in metadata files. For this, first, `imagesIPFS` folder should be uploaded into _IPFS_. When done, we'll get _IPFS CID_ that looks like this: `QmTPhRzQATQWSqx2j5t8YWnuGxDt2tX46qZ3syDHhcth3y`. Assign this _CID_ to the `ipfsCID` variable in `config.js`. Check if the `ipfsCIDPlaceholder` variable in `config.js`, stores actual placeholder link from metadata JSON files.
+The last thing that we need to do is to update the _IPFS CID_ in metadata files. For this, first, `imagesIPFS` folder should be uploaded into _IPFS_. When done, we'll get _IPFS CID_ that looks like this: `QmTPhRzQATQWSqx2j5t8YWnuGxDt2tX46qZ3syDHhcth3y`. Assign this _CID_ to the `ipfsCID` variable in `config.js`. Check if the `ipfsCIDPlaceholder` variable in `config.js`, stores actual placeholder link from metadata _JSON_ files.
 
 Run `updateIPFSCID.js`.
 
 Now the `metadata-IPFS` folder can be uploaded into _IPFS_. Done!
 
-# Afterword
+# Afterword ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/afterword.png "afterword")
 
-# License
+OxCRYPTOPUNKS™ Image Generator is part of the OxCRYPTOPUNKS™ NFT collection, an educational project in which I, as an artist, am entering the world of programming. Comments, suggestions, and improvements are very welcome. This program can be forked and modified as desired.
+
+# License ![alt text](https://github.com/Takuhatsu/nft-image-generator/blob/main/instruction-add-files/license.png "license")
 
 MIT License
 
-Copyright (c) [2023] [Takuhatsu]
+Copyright (c) 2023 Takuhatsu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -153,6 +157,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+# };
 #
 
 
